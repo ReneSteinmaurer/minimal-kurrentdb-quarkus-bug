@@ -1,6 +1,5 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.kurrent.dbclient.EventData;
-import io.kurrent.dbclient.KurrentDBClient;
+import io.kurrent.dbclient.*;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -20,8 +19,10 @@ public class ExampleResource {
                 objectMapper.writeValueAsBytes(event)
         ).build();
 
+        var appendToStreamOptions = AppendToStreamOptions.get()
+                .streamState(StreamState.any());
         // This is the problematic call!
-        kurrentDBClient.appendToStream("test-stream", eventData).get();
+        kurrentDBClient.appendToStream("test-stream", appendToStreamOptions, eventData).get();
 
         return "done";
     }
