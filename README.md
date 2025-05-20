@@ -1,13 +1,10 @@
 # Minimal Reproduction: KurrentDB + Quarkus Bug
 
-This repository demonstrates an issue when using the Java KurrentDB (EventStoreDB) gRPC client within a Quarkus application.
-
 ## Steps to Reproduce
 
 1. Start KurrentDB via Docker Compose:
 2. Start the Quarkus application:
 3. Trigger the endpoint:
-
 
 ## Expected
 
@@ -25,6 +22,6 @@ This repository demonstrates an issue when using the Java KurrentDB (EventStoreD
 
 ## Minimal Source
 
-See `src/main/java/org/example/`
+See `src/main/java/`
 
 
